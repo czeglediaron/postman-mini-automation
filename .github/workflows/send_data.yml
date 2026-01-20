@@ -3,7 +3,7 @@ name: Test JSON Sender
 on:
   workflow_dispatch:   # allows manual trigger in GitHub UI
   schedule:
-    - cron: "0 12 * * *"  # daily at noon (UTC)
+    - cron: "0 14 * * *"  # daily at noon (UTC)
 
 jobs:
   send_json:
