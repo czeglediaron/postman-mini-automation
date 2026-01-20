@@ -1,0 +1,20 @@
+name: Test JSON Sender
+
+on:
+  workflow_dispatch:   # allows manual trigger in GitHub UI
+  schedule:
+    - cron: "0 12 * * *"  # daily at noon (UTC)
+
+jobs:
+  send_json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t mini-poster .
+
+      - name: Run Docker container
+        run: docker run mini-poster
