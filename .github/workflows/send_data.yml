@@ -1,12 +1,12 @@
-name: Test JSON Sender
+name: Send JSON Data
 
 on:
-  workflow_dispatch:   # allows manual trigger in GitHub UI
+  workflow_dispatch:
   schedule:
-    - cron: "0 14 * * *"  # daily at noon (UTC)
+    - cron: "0 13 * * *"  # 14:00 CET
 
 jobs:
-  send_json:
+  send_data:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,4 +17,12 @@ jobs:
         run: docker build -t mini-poster .
 
       - name: Run Docker container
-        run: docker run mini-poster
+        run: docker run -v $(pwd):/app mini-poster
+
+      - name: Commit and push run history
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add run_history.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Log run at $(date)"
+          git push
