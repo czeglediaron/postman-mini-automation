@@ -4198,5 +4198,20 @@
       "body": "This is a simple JSON payload from my Docker container \ud83d\ude80",
       "id": 101
     }
+  },
+  {
+    "timestamp": "2026-11-05T20:25:54.100285Z",
+    "status_code": 201,
+    "payload_sent": {
+      "userId": 1,
+      "title": "Hello from my DevOps test!",
+      "body": "This is a simple JSON payload from my Docker container \ud83d\ude80"
+    },
+    "response_received": {
+      "userId": 1,
+      "title": "Hello from my DevOps test!",
+      "body": "This is a simple JSON payload from my Docker container \ud83d\ude80",
+      "id": 101
+    }
   }
 ]
